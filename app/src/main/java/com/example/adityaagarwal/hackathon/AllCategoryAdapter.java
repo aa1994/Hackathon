@@ -34,7 +34,7 @@ class AllCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        viewModel = new CategoriesViewModel(categoriesList.get(position));
+        viewModel = new CategoriesViewModel(categoriesList.get(position) , false);
         CategoryView view = (CategoryView) holder.itemView;
         view.setClickListener(clickListener);
         view.bindTo(viewModel);

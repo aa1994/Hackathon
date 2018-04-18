@@ -2,6 +2,7 @@ package com.example.adityaagarwal.hackathon;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,12 +17,13 @@ public class CategoryView extends LinearLayout {
 
     CategoriesViewModel viewModel;
     Listener clickListener = Listener.NoOp;
+    private Context context;
 
     public interface Listener {
 
-        void onClick(CategoriesViewModel viewModel);
+        void onClick(CategoryView categoryView, CategoriesViewModel viewModel);
 
-        Listener NoOp = (vm) -> {
+        Listener NoOp = (v, vm) -> {
         };
     }
 
@@ -42,7 +44,7 @@ public class CategoryView extends LinearLayout {
     public void setClickListener(Listener clickListener) {
         this.clickListener = clickListener;
         categoryName.setOnClickListener(view -> {
-            clickListener.onClick(viewModel);
+            clickListener.onClick(this, viewModel);
         });
     }
 
@@ -54,6 +56,10 @@ public class CategoryView extends LinearLayout {
 
     private void validateView() {
         categoryName.setText(viewModel.getCategoryName());
+        if (viewModel.getIsSelected()) {
+            categoryName.setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+        } else {
+            categoryName.setTextColor(ContextCompat.getColor(getContext(), R.color.black));
+        }
     }
-
 }

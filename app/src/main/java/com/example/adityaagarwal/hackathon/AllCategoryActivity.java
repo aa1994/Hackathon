@@ -1,11 +1,9 @@
 package com.example.adityaagarwal.hackathon;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +17,7 @@ public class AllCategoryActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     private AllCategoryAdapter adapter;
+    List<String> categoryList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +31,30 @@ public class AllCategoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
         recyclerView.setAdapter(adapter);
 
-        List<String> list = new ArrayList<>();
-        list.add("Food");
-        list.add("Hiking");
-        list.add("Rafting");
-        list.add("Chill");
-        list.add("Dance");
-        list.add("Art");
-        list.add("Museums");
-        list.add("Movies");
-        list.add("Architecture");
+
+        createCategoryList();
 
 
         adapter.setClickListener(clickListener);
-        adapter.setCategoriesList(list);
-
+        adapter.setCategoriesList(categoryList);
     }
 
-    CategoryView.Listener clickListener = viewModel -> Toast.makeText(getApplicationContext(), viewModel.getCategoryName(), Toast.LENGTH_SHORT).show();
+    private void createCategoryList() {
+        categoryList.add("Food");
+        categoryList.add("Hiking");
+        categoryList.add("Rafting");
+        categoryList.add("Chill");
+        categoryList.add("Dance");
+        categoryList.add("Art");
+        categoryList.add("Museums");
+        categoryList.add("Movies");
+        categoryList.add("Architecture");
+        categoryList.add("Bars");
+    }
+
+    CategoryView.Listener clickListener = (categoryView, viewModel) -> {
+        viewModel.setIsSelected(!viewModel.getIsSelected());
+        categoryView.bindTo(viewModel);
+
+    };
 }
