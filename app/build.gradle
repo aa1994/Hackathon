@@ -25,4 +25,27 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation group: "com.android.support", name: "appcompat-v7", version: "27.1.1"
+    implementation group: "com.android.support", name: "recyclerview-v7", version: "27.1.1"
+    implementation group: "com.android.support", name: "cardview-v7", version: "27.1.1"
+    implementation group: "com.android.support", name: "design", version: "27.1.1"
+
+    //Room
+    implementation 'android.arch.persistence.room:runtime:1.0.0'
+    implementation "android.arch.persistence.room:rxjava2:1.0.0"
+    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+
+    //LiveData, View Model
+    implementation "android.arch.lifecycle:runtime:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+    //rxjava
+    implementation group: "io.reactivex.rxjava2", name: "rxjava", version: "2.1.10"
+    implementation group: "io.reactivex.rxjava2", name: "rxandroid", version: "2.0.2"
+
+    // butterknife
+    implementation group: "com.jakewharton", name: "butterknife", version: "8.8.1"
+    annotationProcessor group: "com.jakewharton", name: "butterknife-compiler", version: "8.8.1"
 }
