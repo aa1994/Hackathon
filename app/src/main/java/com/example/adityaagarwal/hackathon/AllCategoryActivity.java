@@ -23,6 +23,7 @@ public class AllCategoryActivity extends AppCompatActivity {
 
     private AllCategoryAdapter adapter;
     List<String> categoryList = new ArrayList<>();
+    List<String> selectedCategory = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class AllCategoryActivity extends AppCompatActivity {
 
         done.setOnClickListener(v -> {
             Intent intent = new Intent(this, TripActivity.class);
+            intent.putStringArrayListExtra("SELECTED_CATEGORY", (ArrayList<String>) selectedCategory);
             startActivity(intent);
         });
 
@@ -65,7 +67,11 @@ public class AllCategoryActivity extends AppCompatActivity {
 
     CategoryView.Listener clickListener = (categoryView, viewModel) -> {
         viewModel.setIsSelected(!viewModel.getIsSelected());
+        if (viewModel.getIsSelected()) {
+            selectedCategory.add(viewModel.getCategoryName());
+        } else {
+            selectedCategory.remove(viewModel.getCategoryName());
+        }
         categoryView.bindTo(viewModel);
-
     };
 }

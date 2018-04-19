@@ -5,4 +5,6 @@
     <string name="sign_in">sign in</string>
     <string name="enter_password">enter password</string>
     <string name="done">Done</string>
+    <string name="enter_destination_city">Enter destination city</string>
+    <string name="from_date">From date</string>
 </resources>
