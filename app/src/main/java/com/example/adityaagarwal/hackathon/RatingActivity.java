@@ -75,7 +75,7 @@ public class RatingActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "RATING_SUBMITTED", Toast.LENGTH_SHORT).show();
                                 this.finish();
                             }, throwable -> {
-                                Log.d("USER_RATING_RESPONSE", " : E : " + throwable.getMessage());
+                                //Toast.makeText(getApplicationContext(), "Sorry! There was some error", Toast.LENGTH_LONG).show();
                             }
                     );
 

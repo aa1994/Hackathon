@@ -9,7 +9,7 @@ import io.reactivex.Single;
 
 public interface EventService {
     @POST("event")
-    io.reactivex.Observable<Response<EventResponse>> getEvents(@Body EventBody eventBody);
+    io.reactivex.Observable<Response<EventResponseMain>> getEvents(@Body EventBody eventBody);
 
     @POST("rating")
     io.reactivex.Observable<Response<RatingResponse>> setRating(@Body RatingBody ratingBody);

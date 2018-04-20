@@ -37,6 +37,9 @@ public class EventView extends LinearLayout {
     @BindView(R.id.end_date)
     TextView endDate;
 
+    @BindView(R.id.address)
+    TextView address;
+
 
     private EventViewModel viewModel;
 
@@ -66,8 +69,9 @@ public class EventView extends LinearLayout {
 
     private void validateView() {
         eventName.setText(viewModel.getEventName());
-        safetyScore.setText(viewModel.getAddress());
+        safetyScore.setText("Safety Score : " + viewModel.getRating());
         startDate.setText(viewModel.getStartDate());
         endDate.setText(viewModel.getEndDate());
+        address.setText(viewModel.getAddress());
     }
 }

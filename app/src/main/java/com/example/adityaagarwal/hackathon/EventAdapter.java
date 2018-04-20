@@ -6,15 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private EventResponse eventResponse;
+    private List<EventResponse> eventResponse = new ArrayList<>();
     private EventViewModel viewModel;
     private EventView.Listener clickListener;
 
 
-    public void setEventList(EventResponse eventResponse) {
+    public void setEventList(List<EventResponse> eventResponse) {
         this.eventResponse = eventResponse;
+        notifyDataSetChanged();
     }
 
     public class SimpleViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +40,7 @@ public class EventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        viewModel = new EventViewModel(eventResponse);
+        viewModel = new EventViewModel(eventResponse.get(position));
         EventView view = (EventView) holder.itemView;
         view.setClickListener(clickListener);
         view.bindTo(viewModel);
@@ -44,7 +48,7 @@ public class EventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 1;
+        return eventResponse.size();
     }
 
 

@@ -16,6 +16,10 @@ public class EventViewModel {
         return eventResponse.address;
     }
 
+    public String getRating() {
+        return eventResponse.rating;
+    }
+
     public String getStartDate() {
         return eventResponse.startDate;
     }
