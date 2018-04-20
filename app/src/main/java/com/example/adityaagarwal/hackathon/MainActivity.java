@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         signIn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TripActivity.class);
+            Intent intent = new Intent(this, AllCategoryActivity.class);
             getApplicationContext().startActivity(intent);
         });
     }

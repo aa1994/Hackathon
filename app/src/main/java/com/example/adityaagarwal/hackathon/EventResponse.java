@@ -31,6 +31,14 @@ public class EventResponse {
     @SerializedName("address")
     public String address;
 
+    @Expose
+    @SerializedName("category")
+    public String category;
+
+    @Expose
+    @SerializedName("rating")
+    public String rating;
+
     public String getAddress() {
         return address;
     }
@@ -62,4 +70,29 @@ public class EventResponse {
     public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
 }
+

@@ -45,7 +45,7 @@ public class AllCategoryActivity extends AppCompatActivity {
         adapter.setCategoriesList(categoryList);
 
         done.setOnClickListener(v -> {
-            Intent intent = new Intent(this, EventsActivity.class);
+            Intent intent = new Intent(this, TripActivity.class);
             startActivity(intent);
         });
 

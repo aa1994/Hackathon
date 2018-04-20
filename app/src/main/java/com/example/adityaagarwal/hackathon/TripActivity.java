@@ -67,7 +67,10 @@ public class TripActivity extends AppCompatActivity {
         });
 
         next.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AllCategoryActivity.class);
+            Intent intent = new Intent(this, EventsActivity.class);
+            intent.putExtra("CITY", cityText.getText().toString());
+            intent.putExtra("START_DATE", fromDate.getText().toString());
+            intent.putExtra("TO_DATE", toDate.getText().toString());
             startActivity(intent);
         });
     }
