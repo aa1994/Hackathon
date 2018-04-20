@@ -1,10 +1,12 @@
 package com.example.adityaagarwal.hackathon;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,6 +24,9 @@ public class TripActivity extends AppCompatActivity {
 
     @BindView(R.id.toDate)
     EditText toDate;
+
+    @BindView(R.id.next)
+    TextView next;
 
     Calendar myCalendar;
 
@@ -60,7 +65,10 @@ public class TripActivity extends AppCompatActivity {
             new DatePickerDialog(this, date1, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
         });
+
+        next.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AllCategoryActivity.class);
+            startActivity(intent);
+        });
     }
-
-
 }
